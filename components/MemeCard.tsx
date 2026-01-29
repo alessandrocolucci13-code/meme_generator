@@ -53,13 +53,13 @@ function MemeCardContent({ meme }: MemeCardProps) {
           db.tx.upvotes[existingUpvoteId].delete(),
         ]);
       } else {
-        // Add upvote - manually set userId
+        // Add upvote - create upvote and link to meme
+        const upvoteId = id();
         db.transact([
-          db.tx.upvotes[id()].update({
-            meme: meme.id,
+          db.tx.upvotes[upvoteId].update({
             createdAt: Date.now(),
             userId: user.id,
-          }),
+          }).link({ meme: meme.id }),
         ]);
       }
     } catch (error) {
