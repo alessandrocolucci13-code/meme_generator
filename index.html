@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-icon">🎭</span>
+                    Meme Generator
+                </h1>
+                <p class="app-subtitle">Create hilarious memes in seconds</p>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="workspace">
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-icon">🎨</span>
+                            <h2 class="section-title">Templates</h2>
+                        </div>
+                        <div class="templates-grid" id="templatesGrid">
+                            <!-- Templates will be loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-icon">📸</span>
+                            <h2 class="section-title">Upload Your Own</h2>
+                        </div>
+                        <label for="imageUpload" class="upload-area">
+                            <div class="upload-icon">📁</div>
+                            <span class="upload-text">Choose Image</span>
+                            <span class="upload-hint">PNG, JPG, GIF up to 10MB</span>
+                            <input type="file" id="imageUpload" accept="image/*" hidden>
+                        </label>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-icon">✏️</span>
+                            <h2 class="section-title">Text</h2>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="topText" class="form-label">Top Text</label>
+                            <input type="text" id="topText" class="form-input" placeholder="Enter top text...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bottomText" class="form-label">Bottom Text</label>
+                            <input type="text" id="bottomText" class="form-input" placeholder="Enter bottom text...">
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-icon">🎨</span>
+                            <h2 class="section-title">Style</h2>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="slider-header">
+                                <label for="fontSize" class="form-label">Font Size</label>
+                                <span class="slider-value" id="fontSizeValue">40px</span>
+                            </div>
+                            <input type="range" id="fontSize" class="slider" min="20" max="100" value="40">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textColor" class="form-label">Text Color</label>
+                            <div class="color-picker-wrapper">
+                                <input type="color" id="textColor" class="color-picker" value="#ffffff">
+                                <span class="color-value" id="colorValue">#ffffff</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <button id="downloadBtn" class="download-button" disabled>
+                            <span class="button-icon">⬇️</span>
+                            <span>Download Meme</span>
+                        </button>
+                    </div>
+                </aside>
+
+                <div class="preview-area">
+                    <div class="preview-container">
+                        <canvas id="memeCanvas"></canvas>
+                        <div id="canvasPlaceholder" class="preview-placeholder">
+                            <div class="placeholder-content">
+                                <div class="placeholder-icon">🖼️</div>
+                                <h3 class="placeholder-title">Ready to create?</h3>
+                                <p class="placeholder-text">Upload an image to get started</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
